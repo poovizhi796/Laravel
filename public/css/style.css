@@ -1,0 +1,19 @@
+body{
+    padding:0px;
+    margin:0px;
+}
+.header
+{
+    margin-top:5px;
+}
+.navigation ul li
+{
+    display:inline;
+    padding:10px;
+    margin: 4px;
+}
+.heading
+{
+    padding:10px;
+    margin:0px auto;
+}
