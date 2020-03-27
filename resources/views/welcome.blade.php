@@ -2,7 +2,7 @@
 @section('title', 'Welcome')
 @section('content')
 @component('component.alert', ['type' => 'primary'])
-  Welcome to Test Project We are using component and slot for changing the dynamic content, it display when eve u click the nav links.
+  Welcome to {{ $type }} {{ $name }} We are using component and slot for changing the dynamic content, it display when eve u click the nav links.
 @endcomponent
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
