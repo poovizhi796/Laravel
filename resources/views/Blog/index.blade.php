@@ -12,6 +12,11 @@
                 {{ $msg }}
             @endcomponent
         @endif
+        @if ($error_msg = Session::get('danger'))
+            @component('component.alert', ['type' => 'danger'])
+                {{ $error_msg }}
+            @endcomponent
+        @endif
         <table class="bloglist table table-bordered">
             <thead>
                 <tr>
@@ -28,9 +33,10 @@
                     <td>{{ $data->title }}</td>
                     <td>{{ str_limit($data->description, 100, '...') }}</td>
                     <td><a href="{{ route('blog.show', $data->id) }}" class="btn btn-sm btn-outline-info">View</a></td>
-                    <td><a href="" class="">Edit</a></td>
+                    <td><a href="{{ route('blog.edit', $data->id) }}" class="btn btn-sm btn-outline-warning">Edit</a></td>
                     <td>
                     {{ Form::open(['method'=>'DELETE', 'route' => ['blog.destroy', $data->id]])  }}
+                    {{ csrf_field() }}
                     {{ Form::submit('Delete', ['class' => 'btn btn-sm btn-outline-danger'])  }}
                     {{ Form::close() }}
                     </td>

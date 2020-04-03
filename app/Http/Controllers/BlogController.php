@@ -69,7 +69,8 @@ class BlogController extends Controller
      */
     public function edit($id)
     {
-        //
+        $oneRow = Blog::find($id);
+        return view('Blog.edit', compact(['oneRow']));
     }
 
     /**
@@ -81,7 +82,8 @@ class BlogController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        Blog::find($id)->update($request->all());
+        return redirect()->route('blog.index')->with('success', 'Successfully Updated!');
     }
 
     /**
@@ -92,6 +94,15 @@ class BlogController extends Controller
      */
     public function destroy($id)
     {
-        return 'delete ope';
+        // Blog::where('id', $id)->delete();  //this also good method , using where condition
+        // $result = Blog::find($id)->delete(); // this also right
+        $result = Blog::find($id);
+        if ($result!= null) {
+            $result->delete();
+            return redirect()->route('blog.index')->with('success', 'Removed Record Successfully!');
+        } else {
+            return redirect()->route('blog.index')->with('danger', 'Wrong ID');
+        }
+        
     }
 }
