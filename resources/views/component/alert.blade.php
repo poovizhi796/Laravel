@@ -1,3 +1,3 @@
-<div class="nav justify-content-center alert alert-{{ $type }}">
-    {{ $slot }}
+<div class="mt-5 nav justify-content-center alert alert-{{ $type }}">
+    {{ 'Hi '.$slot }}
 </div>

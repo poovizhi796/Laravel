@@ -18,3 +18,4 @@ Route::get('contact', function () {
     return view('contact');
 });*/
 Route::get('contact', 'HomeController@contact');
+Route::resource('blog', 'BlogController');

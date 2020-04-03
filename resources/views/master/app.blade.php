@@ -24,10 +24,13 @@
             <li class="nav-item">
                 <a class="nav-link" href="contact">Contact</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="blog">Blog</a>
+            </li>
         </ul>
         @yield('content')
         <!-- Footer Section--->
-        <nav class="container justify-content-center navbar navbar-light bg-light">
+        <nav class="container justify-content-center navbar navbar-light bg-light fixed-bottom">
             <a class="navbar-brand" href="/">All rights reserved @testproject.com</a>
         </nav>
     </body>
